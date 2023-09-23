@@ -29,15 +29,16 @@ class BookingService {
     getAll = async (
         weekdate: string | boolean = false
     ): Promise<Booking[] | []> => {
-
         let where: Prisma.BookingWhereInput = {}
-        if(weekdate) {
+        if(typeof weekdate === "string") {
+            const startDate = new Date(weekdate);
+            const endDate = new Date(weekdate);
+            endDate.setDate(endDate.getDate() + 7);
+
             where = {
                 start_at: {
-                    gte: ''
-                },
-                finish_at: {
-                    lte: ''
+                    gte: startDate.toISOString(),
+                    lte: endDate.toISOString()
                 }
             }
         }
