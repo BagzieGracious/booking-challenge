@@ -1,0 +1,12 @@
+model User {
+    id         String    @id @unique @default(uuid())
+    name       String
+    email      String
+    bookings   Booking[]
+    agent      Agent     @relation(fields: [agent_id], references: [id])
+    agent_id   String    @unique
+    created_at DateTime  @default(now())
+    updated_at DateTime  @updatedAt
+
+    @@map("users")
+}

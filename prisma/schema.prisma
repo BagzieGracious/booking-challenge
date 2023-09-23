@@ -1,0 +1,65 @@
+enum AgentRole {
+  ADMIN
+  REGULAR
+}
+
+model Agent {
+  id         String    @id @unique @default(uuid())
+  name       String    @unique
+  email      String    @unique
+  role       AgentRole
+  bookings   Booking[]
+  users      User[]
+  token      Token?
+  created_at DateTime  @default(now())
+  updated_at DateTime  @updatedAt
+
+  @@map("agents")
+}
+
+model Booking {
+  id         String   @id @unique @default(uuid())
+  user       User     @relation(fields: [user_id], references: [id])
+  user_id    String
+  agent      Agent    @relation(fields: [agent_id], references: [id])
+  agent_id   String
+  start_at   DateTime
+  finish_at  DateTime
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  @@map("bookings")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Token {
+  id         String   @id @unique @default(uuid())
+  agent      Agent    @relation(fields: [agent_id], references: [id])
+  agent_id   String   @unique
+  token      String
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  @@map("tokens")
+}
+
+model User {
+  id         String    @id @unique @default(uuid())
+  name       String
+  email      String
+  bookings   Booking[]
+  agent      Agent     @relation(fields: [agent_id], references: [id])
+  agent_id   String    @unique
+  created_at DateTime  @default(now())
+  updated_at DateTime  @updatedAt
+
+  @@map("users")
+}

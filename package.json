@@ -7,7 +7,8 @@
     "build": "tsc -p .",
     "tests": "jest --coverage",
     "dev": "nodemon --files ./src/index.ts",
-    "lint": "tslint -c tslint.json -p tsconfig.json --fix"
+    "lint": "tslint -c tslint.json -p tsconfig.json --fix",
+    "gen:schema": "cd prisma/ && rm -rf schema.prisma && cd schemas && cat *.prisma >> ../schema.prisma && cd .. && ls && npx prisma format"
   },
   "repository": {
     "type": "git",
@@ -21,10 +22,14 @@
   },
   "homepage": "https://github.com/BagzieGracious/booking-challenge#readme",
   "dependencies": {
+    "@prisma/client": "^5.3.1",
     "body-parser": "^1.20.2",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
+    "express-validation": "^4.1.0",
+    "express-validator": "^7.0.1",
     "nodemon": "^3.0.1",
+    "prisma": "^5.3.1",
     "tslint": "^6.1.3",
     "typescript": "^5.2.2"
   },
