@@ -96,6 +96,7 @@ class AgentService {
     delete = async (
         id: string
     ): Promise<void> => {
+        await prisma.token.delete({ where: { agent_id: id }})
         await prisma.agent.delete({
             where: { id }
         })
