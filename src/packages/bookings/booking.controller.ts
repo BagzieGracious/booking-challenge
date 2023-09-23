@@ -22,7 +22,7 @@ class Booking {
             const booking = await BookingService.get(id);
             res.status(200).json({ data: booking })
         } catch (error) {
-            res.status(200).json({ error })
+            res.status(400).json({ error })
         }
     }
 
@@ -40,7 +40,7 @@ class Booking {
             const bookings = await BookingService.getAll();
             res.status(200).json({ data: bookings })
         } catch (error) {
-            res.status(200).json({ error })
+            res.status(400).json({ error })
         }
     }
 
@@ -71,7 +71,7 @@ class Booking {
             const booking = await BookingService.create(data)
             res.status(201).json({ data: booking })
         } catch (error) {
-            res.status(200).json({ error })
+            res.status(400).json({ error })
         }
     }
 
@@ -104,7 +104,7 @@ class Booking {
             const booking = await BookingService.update(data, id);
             res.status(200).json({ data: booking })
         } catch (error) {
-            res.status(200).json({ error })
+            res.status(400).json({ error })
         }
     }
 
