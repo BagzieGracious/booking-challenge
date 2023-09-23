@@ -12,6 +12,11 @@ Create a new directory and initialize git in it. Clone this repository by runnin
 $ git clone https://github.com/BagzieGracious/booking-challenge.git
 ```
 
+Install packages
+```sh
+$ yarn install
+```
+
 Create Prisma Schema
 ```sh
 $ yarn gen:schema
