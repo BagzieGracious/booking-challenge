@@ -9,7 +9,8 @@
 
 Create a new directory and initialize git in it. Clone this repository by running
 ```sh
-$ git clone https://github.com/BagzieGracious/booking-challenge.git
+$ git clone https://github.com/BagzieGracious/booking-challenge.git (use http)
+$ git clone git@github.com:BagzieGracious/booking-challenge.git (use ssh)
 ```
 
 Install packages
