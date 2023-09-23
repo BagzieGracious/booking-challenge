@@ -8,9 +8,15 @@
 # Installation
 
 Create a new directory and initialize git in it. Clone this repository by running
+
+Use HTTP
 ```sh
-$ git clone https://github.com/BagzieGracious/booking-challenge.git (use http)
-$ git clone git@github.com:BagzieGracious/booking-challenge.git (use ssh)
+$ git clone https://github.com/BagzieGracious/booking-challenge.git
+```
+
+Use SSH
+```sh
+$ git clone git@github.com:BagzieGracious/booking-challenge.git
 ```
 
 Install packages
