@@ -1,0 +1,12 @@
+[
+    {
+        "name": "John Doe",
+        "email": "john.doe@gmail.com",
+        "role": "REGULAR"
+    },
+    {
+        "name": "Deogratius Bagenda",
+        "email": "bagendadeogracious@gmail.com",
+        "role": "ADMIN"
+    }
+]

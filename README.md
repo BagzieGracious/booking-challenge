@@ -27,6 +27,11 @@ Make Migrations
 $ npx prisma migrate dev
 ```
 
+Run Seeders
+```sh
+$ yarn seed
+```
+
 Run Application
 ```sh
 $ yarn dev
