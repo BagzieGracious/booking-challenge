@@ -1,0 +1,18 @@
+enum AgentRole {
+    ADMIN
+    REGULAR
+}
+
+model Agent {
+    id         String    @id @unique @default(uuid())
+    name       String    @unique
+    email      String    @unique
+    role       AgentRole
+    bookings   Booking[]
+    users      User[]
+    token      Token?
+    created_at DateTime  @default(now())
+    updated_at DateTime  @updatedAt
+
+    @@map("agents")
+}

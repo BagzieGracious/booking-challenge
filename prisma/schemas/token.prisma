@@ -1,0 +1,10 @@
+model Token {
+    id         String   @id @unique @default(uuid())
+    agent      Agent    @relation(fields: [agent_id], references: [id])
+    agent_id   String   @unique
+    token      String
+    created_at DateTime @default(now())
+    updated_at DateTime @updatedAt
+
+    @@map("tokens")
+}
