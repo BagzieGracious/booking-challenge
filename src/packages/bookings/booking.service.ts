@@ -1,7 +1,7 @@
 import { Booking, Prisma } from "@prisma/client"
 import { prisma } from "../../constants";
 import { IBookingCreate } from "./booking.interface";
-
+import moment from "moment";
 
 class BookingService {
 
@@ -69,8 +69,8 @@ class BookingService {
                         id: data.agent_id
                     }
                 },
-                start_at: data.start_at,
-                finish_at: data.finish_at,
+                start_at: moment(data.start_at, "DD/MM/YYYY HH:mm:ss").toISOString(),
+                finish_at: moment(data.finish_at, "DD/MM/YYYY HH:mm:ss").toISOString(),
             }
         })
     }
@@ -97,8 +97,8 @@ class BookingService {
                         id: data.agent_id
                     }
                 },
-                start_at: data.start_at,
-                finish_at: data.finish_at,
+                start_at: moment(data.start_at, "DD/MM/YYYY HH:mm:ss").toISOString(),
+                finish_at: moment(data.finish_at, "DD/MM/YYYY HH:mm:ss").toISOString(),
             }
         });
     }
